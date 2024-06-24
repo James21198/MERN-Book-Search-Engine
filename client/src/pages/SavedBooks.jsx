@@ -22,7 +22,6 @@ const SavedBooks = () => {
 
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
     if (!token) {
       return false;
     }
@@ -32,6 +31,7 @@ const SavedBooks = () => {
       });
 
       removeBookId(bookId);
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
